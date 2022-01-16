@@ -7,4 +7,22 @@ def crear_curso(request, camada):
     curso.save()
     return HttpResponse (f'Curso creado! {camada}')
 
-# Create your views here.
+def inicio(request):
+   
+    return  render(request, '/Users/mac/Desktop/Coderhouse_Python/git/ProyectoCoder/templates/inicio.html')
+
+def cursos(request):
+    
+    return render(request, '/Users/mac/Desktop/Coderhouse_Python/git/ProyectoCoder/templates/cursos.html')
+
+def profesores(request):
+    return HttpResponse('profesores')
+
+
+def estudiantes(request):
+    return HttpResponse('estudiantes')
+
+
+def entregables(request):
+    return HttpResponse('entregables')
+
