@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from django.http import HttpResponse
-from .models import Curso
+from AppCoder.models import *
 
 def crear_curso(request, camada):
     curso = Curso(nombre= 'Python', camada = camada)
@@ -8,21 +8,19 @@ def crear_curso(request, camada):
     return HttpResponse (f'Curso creado! {camada}')
 
 def inicio(request):
-   
-    return  render(request, '/Users/mac/Desktop/Coderhouse_Python/git/ProyectoCoder/templates/inicio.html')
+    return  render(request, '/Users/mac/Desktop/Coderhouse_Python/git/ProyectoCoder/clase18/templates/inicio.html')
 
 def cursos(request):
-    
-    return render(request, '/Users/mac/Desktop/Coderhouse_Python/git/ProyectoCoder/templates/cursos.html')
+    return render(request, '/Users/mac/Desktop/Coderhouse_Python/git/ProyectoCoder/clase18/templates/cursos.html')
 
 def profesores(request):
-    return HttpResponse('profesores')
+      return render(request, "AppCoder/profesores.html")
 
 
 def estudiantes(request):
-    return HttpResponse('estudiantes')
+    return render(request, "AppCoder/estudiantes.html")
 
 
 def entregables(request):
-    return HttpResponse('entregables')
+    return render(request, "AppCoder/entregables.html")
 

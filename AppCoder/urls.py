@@ -1,9 +1,9 @@
-
 from django.urls import path
-from AppCoder.views import crear_curso, inicio, cursos
+from AppCoder import views
 
 urlpatterns = [
-    path('crearcurso/<camada>', crear_curso),
-    path('', inicio),
-    path('cursos', cursos),
+    path('crear curso', views.crear_curso, name="Crear curso"),
+    path('', views.inicio, name="Inicio"),
+    path('cursos', views.cursos, name="Cursos"),
+    path('profesores', views.profesores, name="Profesores"),
 ]
