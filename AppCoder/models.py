@@ -1,23 +1,27 @@
-from django.db import models
-from django.db.models.fields import CharField, IntegerField
+from tabnanny import verbose
+from django.db.models import Model
+from django.db.models.fields import CharField, IntegerField, DateField, BooleanField, EmailField
 
-class Curso(models.Model):
+class Curso(Model):
 
-    nombre=models.CharField(max_length=40)
-    camada = models.IntegerField()
+    nombre= CharField(max_length=40, verbose_name='Descripcion del curso')
+    camada = IntegerField()
+    
+    def __str__(self):
+        return f'Curso {self.nombre} ({self.camada})'
 
-class Estudiante(models.Model):
-    nombre= models.CharField(max_length=30)
-    apellido= models.CharField(max_length=30)
-    email= models.EmailField()
+class Estudiante(Model):
+    nombre= CharField(max_length=30)
+    apellido= CharField(max_length=30)
+    email= EmailField()
 
-class Profesor(models.Model):
-    nombre= models.CharField(max_length=30)
-    apellido= models.CharField(max_length=30)
-    email= models.EmailField()
-    profesion= models.CharField(max_length=30)
+class Profesor(Model):
+    nombre= CharField(max_length=30)
+    apellido= CharField(max_length=30)
+    email= EmailField()
+    profesion= CharField(max_length=30)
 
-class Entregable(models.Model):
-    nombre= models.CharField(max_length=30)
-    fechaDeEntrega = models.DateField()  
-    entregado = models.BooleanField()
+class Entregables(Model):
+    nombre= CharField(max_length=30)
+    fechaDeEntrega = DateField()  
+    entregado = BooleanField()

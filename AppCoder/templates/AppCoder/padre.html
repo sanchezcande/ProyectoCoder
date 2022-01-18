@@ -8,7 +8,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Inicio</title>
+        <title>
+            {% block titulo %}
+
+            {% endblock %}
+        </title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{%static 'AppCoder/assets/favicon.ico' %}" />
         <!-- Bootstrap icons-->
@@ -24,11 +28,11 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="">Inicio</a>´
+                <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>´
                 <a class="navbar-brand" href="">Profesores</a>
-                <a class="navbar-brand" href="">Cursos</a>
+                <a class="navbar-brand" href="{% url 'Cursos' %}">Cursos</a>
                 <a class="navbar-brand" href="">Estudiantes</a>
-                <a class="navbar-brand" href="">Entregables</a>
+                <a class="navbar-brand" href="{% url 'Entregables' %}">Entregables</a>
                 <a class="btn btn-primary" href="#NADAAUN">INICIAR</a>
             </div>
         </nav>

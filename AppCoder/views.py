@@ -8,10 +8,10 @@ def crear_curso(request, camada):
     return HttpResponse (f'Curso creado! {camada}')
 
 def inicio(request):
-    return  render(request, '/Users/mac/Desktop/Coderhouse_Python/git/ProyectoCoder/clase18/templates/inicio.html')
+    return  render(request, 'AppCoder/inicio.html')
 
 def cursos(request):
-    return render(request, '/Users/mac/Desktop/Coderhouse_Python/git/ProyectoCoder/clase18/templates/cursos.html')
+    return render(request, 'AppCoder/cursos.html')
 
 def profesores(request):
       return render(request, "AppCoder/profesores.html")
