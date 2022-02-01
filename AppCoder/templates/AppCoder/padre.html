@@ -28,12 +28,20 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>´
-                <a class="navbar-brand" href="">Profesores</a>
-                <a class="navbar-brand" href="{% url 'Cursos' %}">Cursos</a>
+                <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
+                <a class="navbar-brand" href="{% url 'profesores' %}">Profesores</a>
+                <a class="navbar-brand" href="{% url 'cursos' %}">Cursos</a>
                 <a class="navbar-brand" href="">Estudiantes</a>
-                <a class="navbar-brand" href="{% url 'Entregables' %}">Entregables</a>
-                <a class="btn btn-primary" href="#NADAAUN">INICIAR</a>
+                <a class="navbar-brand" href="{% url 'entregables' %}">Entregables</a>
+                {% if not request.user.is_authenticated %}
+                    <a class="btn btn-primary" href="#NADAAUN">INICIAR</a>
+                {% else %}
+                    <p class="text-muted small mb-4 mb-lg-0">Hola {{user.fist_name}}!! </p>
+                   <img src=" {{avatar_url}} " height="50px"/>
+                    <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+                {% endif %}
+               
+
             </div>
         </nav>
 

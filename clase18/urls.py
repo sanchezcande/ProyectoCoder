@@ -16,8 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.utils.regex_helper import next_char
+from clase18.views import UserCreateView, editar_perfil
+from django.contrib.auth.views import LogoutView, LoginView
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('coder/', include('AppCoder.urls')),
+    path('login/', LoginView.as_view(template_name='login.html'), name='login'),
+    path('register/', UserCreateView.as_view(template_name='register.html'), name='register'),
+    path('logout', LogoutView.as_view(template_name='logout.html'), name='logout'),
+    path('user/edit/', editar_perfil, name='user_editar')
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
